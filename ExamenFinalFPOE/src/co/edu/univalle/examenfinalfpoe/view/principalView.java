@@ -46,7 +46,6 @@ public class principalView extends javax.swing.JFrame {
         jTxtTelefono = new javax.swing.JTextField();
         jTxtNombres = new javax.swing.JTextField();
         jTxtDireccion = new javax.swing.JTextField();
-        btnVerificar = new javax.swing.JButton();
         jAlergias = new javax.swing.JPanel();
         btnAgregar = new javax.swing.JButton();
         comboAlergias = new javax.swing.JComboBox<>();
@@ -55,6 +54,8 @@ public class principalView extends javax.swing.JFrame {
         jControles = new javax.swing.JPanel();
         btnActualizar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
+        btnVerificar = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(0, 0, 970, 555));
@@ -90,8 +91,6 @@ public class principalView extends javax.swing.JFrame {
             }
         });
 
-        btnVerificar.setText("Verificar");
-
         javax.swing.GroupLayout jDatosLayout = new javax.swing.GroupLayout(jDatos);
         jDatos.setLayout(jDatosLayout);
         jDatosLayout.setHorizontalGroup(
@@ -115,11 +114,9 @@ public class principalView extends javax.swing.JFrame {
                             .addComponent(jLabelNombres)))
                     .addComponent(jTxtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTxtNombres)
-                        .addComponent(jTxtDireccion, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE))
-                    .addComponent(btnVerificar))
+                .addGroup(jDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTxtNombres)
+                    .addComponent(jTxtDireccion, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE))
                 .addContainerGap(104, Short.MAX_VALUE))
         );
         jDatosLayout.setVerticalGroup(
@@ -128,9 +125,8 @@ public class principalView extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addGroup(jDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelId)
-                    .addComponent(jTxtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnVerificar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                    .addComponent(jTxtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(jDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelApellidos)
                     .addComponent(jTxtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -192,25 +188,41 @@ public class principalView extends javax.swing.JFrame {
         btnCancelar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnCancelar.setText("Cancelar");
 
+        btnVerificar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnVerificar.setText("Verificar");
+
+        btnGuardar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnGuardar.setText("Guardar Datos");
+
         javax.swing.GroupLayout jControlesLayout = new javax.swing.GroupLayout(jControles);
         jControles.setLayout(jControlesLayout);
         jControlesLayout.setHorizontalGroup(
             jControlesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jControlesLayout.createSequentialGroup()
-                .addGap(97, 97, 97)
-                .addGroup(jControlesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                    .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addGroup(jControlesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jControlesLayout.createSequentialGroup()
+                        .addComponent(btnVerificar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jControlesLayout.createSequentialGroup()
+                        .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         jControlesLayout.setVerticalGroup(
             jControlesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jControlesLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addGap(35, 35, 35)
+                .addGroup(jControlesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnVerificar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(jControlesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         jContenido.add(jControles);
@@ -240,6 +252,10 @@ public class principalView extends javax.swing.JFrame {
     
     public JButton getBtnVerificar() {
         return btnVerificar;
+    }
+    
+    public JButton getBtnGuardar() {
+        return btnGuardar;
     }
 
     public JComboBox<String> getComboAlergias() {
@@ -317,6 +333,10 @@ public class principalView extends javax.swing.JFrame {
         btnVerificar.addActionListener(listener);
     }
     
+    public void addBtnGuardar(ActionListener listener){
+        btnGuardar.addActionListener(listener);
+    }
+    
     public void addComboAlergias(ActionListener listener){
         comboAlergias.addActionListener(listener);
     }
@@ -364,6 +384,7 @@ public class principalView extends javax.swing.JFrame {
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnVerificar;
     private javax.swing.JComboBox<String> comboAlergias;
     private javax.swing.JPanel jAlergias;

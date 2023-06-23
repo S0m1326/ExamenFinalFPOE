@@ -1,6 +1,8 @@
 package co.edu.univalle.examenfinalfpoe.model;
 
-public class Alergia {
+import java.io.Serializable;
+
+public class Alergia implements Serializable{
     private Integer id;
     private String alergia;
 

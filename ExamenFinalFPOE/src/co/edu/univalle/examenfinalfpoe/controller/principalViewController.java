@@ -1,6 +1,7 @@
 package co.edu.univalle.examenfinalfpoe.controller;
 
 import co.edu.univalle.examenfinalfpoe.model.Alergia;
+import co.edu.univalle.examenfinalfpoe.model.Archivos;
 import co.edu.univalle.examenfinalfpoe.model.Paciente;
 import co.edu.univalle.examenfinalfpoe.repository.AlergiaDAO;
 import co.edu.univalle.examenfinalfpoe.repository.PacienteDAO;
@@ -38,8 +39,9 @@ public class principalViewController {
     private int index;
     private ArrayList<String> alergiasNewPaciente;
     private ArrayList<String> alergiasPaciente;
+    private ArrayList<Paciente> pacientes;
     private DefaultListModel<String> model;
-    private DefaultListModel<String> modelVacio;
+    String  rutaArchivo = "./src/Archivos/Pacientes.bin";
 
     public principalViewController(principalView principalView) {
         this.principalView = principalView;
@@ -47,19 +49,22 @@ public class principalViewController {
         this.alergiaDAO = new AlergiaDAO();
         this.pacienteDAO = new PacienteDAO();
         
+        this.pacientes = Archivos.leerArchivo(rutaArchivo);
+        
         HandlerActions listener = new HandlerActions();
         
         principalView.addBtnActualizar(listener);
         principalView.addBtnAgregar(listener);
         principalView.addBtnCancelar(listener);
         principalView.addBtnVerificar(listener);
+        principalView.addBtnGuardar(listener);
         principalView.addComboAlergias(listener);
         
         this.listaParametros = new ArrayList();
         this.alergiasNewPaciente = new ArrayList<>();
         this.alergiasPaciente = new ArrayList<>();
         this.model = new DefaultListModel<>();
-        this.modelVacio = new DefaultListModel<>();
+        pacientes = new ArrayList<>();
         
         principalView.getBtnAgregar().setEnabled(false);
         
@@ -223,6 +228,15 @@ public class principalViewController {
                 } else if (principalView.getBtnActualizar().getText().equals("Actualizar")) {
                     System.out.println("Paciente Actualizado");
                 }
+                
+                Set<Map.Entry<Integer, Paciente>> entrySetMapa = mapaPacientes.entrySet();
+
+                for (Map.Entry<Integer, Paciente> entry : entrySetMapa){
+                    Paciente value = entry.getValue();
+                    pacientes.add(value);
+                }
+                
+                System.out.println("Paciente bin: " + pacientes);
 
                 limpiarCampos();
 
@@ -231,6 +245,12 @@ public class principalViewController {
             if (e.getSource() == principalView.getBtnCancelar()) {
                 limpiarCampos();
                 principalView.getBtnAgregar().setEnabled(false);
+            }
+            if (e.getSource() == principalView.getBtnGuardar()) {
+                limpiarCampos();
+                principalView.getBtnAgregar().setEnabled(false);
+                
+                Archivos.guardarArchivo(pacientes, rutaArchivo);
             }
         }
     }

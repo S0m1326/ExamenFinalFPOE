@@ -15,7 +15,7 @@ public class AlergiaDAO implements AlergiaDAOInterface {
 
     @Override
     public Alergia getAlergia(Integer llave) {
-        return mapaAlergias.get(llave);
+        return mapaAlergias.get(llave + 1);
     }
 
     @Override
